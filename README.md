@@ -1,4 +1,4 @@
 # HalfBeam
 
-Half-sized wooden beams so you can build 0.5m beams for more precise and detailed constructions.
+Half-sized beams so you can build with more precision.
 This mod adds scaled variants of the different beam types.
