@@ -35,6 +35,13 @@ namespace HalfBeams
                 "wood_beam_45", "half_wood_beam_45",
                 "Wood beam 45\u00B0 (half)", "A half-length wooden beam at 45\u00B0.",
                 Half, SnowMode.Remove),
+
+            // 67 degrees: spans 2 across / 4 up in vanilla -> 1 across / 2 up.
+            // Baked meshes, so this one relies on the factory's pivot path.
+            new PieceVariantDefinition(
+                "wood_beam_67", "half_wood_beam_67",
+                "Wood beam 67\u00B0 (half)", "A half-length wooden beam at 67\u00B0.",
+                Half, SnowMode.Remove),
         };
     }
 }
