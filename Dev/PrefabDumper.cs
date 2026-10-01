@@ -26,10 +26,22 @@ namespace HalfBeams.Dev
         private static readonly HashSet<string> HierarchyNames = new HashSet<string>
         {
             "wood_beam", "wood_beam_1", "wood_beam_26", "wood_beam_45", "wood_beam_67",
-            "wood_pole", "wood_pole2"
+            "wood_pole", "wood_pole2",
+            "ashwood_beam_1m", "ashwood_pole_1m",
+            "ashwood_wall_beam_26", "ashwood_wall_beam_45", "ashwood_wall_beam_67",
+            "darkwood_beam", "darkwood_pole",
+            "darkwood_beam_26", "darkwood_beam_45", "darkwood_beam_67"
         };
 
         private const string OutputFileName = "HalfBeams_prefab_dump.txt";
+
+        // The Hammer's build table, so each dumped piece can say whether it is actually buildable.
+        private static PieceTable _hammerTable;
+
+        private static string InHammer(GameObject prefab)
+        {
+            return _hammerTable == null ? "unknown" : (_hammerTable.m_pieces.Contains(prefab) ? "yes" : "no");
+        }
 
         public static void Register()
         {
@@ -50,6 +62,10 @@ namespace HalfBeams.Dev
             // Only unsubscribe once we know we can dump; the event fires on every world load.
             PrefabManager.OnPrefabsRegistered -= Dump;
 
+            GameObject hammer = ObjectDB.instance != null ? ObjectDB.instance.GetItemPrefab("Hammer") : null;
+            ItemDrop hammerDrop = hammer != null ? hammer.GetComponent<ItemDrop>() : null;
+            _hammerTable = hammerDrop != null ? hammerDrop.m_itemData.m_shared.m_buildPieces : null;
+
             var sb = new StringBuilder();
             List<GameObject> candidates = ZNetScene.instance.m_prefabs
                 .Where(p => p != null
@@ -61,7 +77,7 @@ namespace HalfBeams.Dev
             sb.AppendLine("== Candidate prefabs (" + candidates.Count + ") ==");
             foreach (GameObject p in candidates)
             {
-                sb.AppendLine(p.name + "  ->  " + p.GetComponent<Piece>().m_name);
+                sb.AppendLine(p.name + "  ->  " + p.GetComponent<Piece>().m_name + "  [inHammer=" + InHammer(p) + "]");
             }
             sb.AppendLine();
 
@@ -97,7 +113,8 @@ namespace HalfBeams.Dev
                 sb.AppendLine("=== " + prefab.name + " ===");
 
                 Piece piece = inst.GetComponent<Piece>();
-                sb.AppendLine("  piece: name=" + piece.m_name + " category=" + piece.m_category);
+                sb.AppendLine("  piece: name=" + piece.m_name + " category=" + piece.m_category
+                              + " inHammer=" + InHammer(prefab));
                 if (piece.m_resources != null)
                 {
                     foreach (Piece.Requirement r in piece.m_resources)
