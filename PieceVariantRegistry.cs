@@ -13,105 +13,187 @@ namespace HalfBeams
 
         public static readonly IReadOnlyList<PieceVariantDefinition> All = new List<PieceVariantDefinition>
         {
-            // Straight beam: 1m -> 0.5m.
-            new PieceVariantDefinition(
-                "wood_beam_1", "half_wood_beam",
-                "Wood beam 0.5m", "A half-length wooden beam.",
-                Half, SnowMode.ScaleLength),
+            // ---------------------------------------------------------------------------------
+            // Regular wood
+            // ---------------------------------------------------------------------------------
 
             // Vertical pole: 1m -> 0.5m.
             new PieceVariantDefinition(
-                "wood_pole", "half_wood_pole",
-                "Wood pole 0.5m", "A half-length wooden pole.",
-                Half, SnowMode.Remove),
+                "wood_pole",
+                "half_wood_pole",
+                "Wood Pole 0.5 m",
+                "A half-length sturdy wooden support.",
+                Half,
+                SnowMode.Remove
+            ),
 
-            // 26 degrees: spans 2 across / 1 up in vanilla -> 1 across / 0.5 up.
+            // Straight beam: 1m -> 0.5m.
             new PieceVariantDefinition(
-                "wood_beam_26", "half_wood_beam_26",
-                "Wood beam 26\u00B0 (half)", "A half-length wooden beam at 26\u00B0.",
-                Half, SnowMode.Remove),
+                "wood_beam_1",
+                "half_wood_beam",
+                "Wood Beam 0.5 m",
+                "A half-length sturdy wooden support.",
+                Half,
+                SnowMode.ScaleLength
+            ),
 
-            // 45 degrees: spans 2 across / 2 up in vanilla -> 1 across / 1 up.
+            // 26 degrees: spans 1m across / 2m up in vanilla -> 0.5m across / 0.25m up.
             new PieceVariantDefinition(
-                "wood_beam_45", "half_wood_beam_45",
-                "Wood beam 45\u00B0 (half)", "A half-length wooden beam at 45\u00B0.",
-                Half, SnowMode.Remove),
+                "wood_beam_26",
+                "half_wood_beam_26",
+                "Wood Beam 26\u00B0 (Half)",
+                "A half-length sturdy wooden support.",
+                Half,
+                SnowMode.Remove
+            ),
 
-            // 67 degrees: spans 2 across / 4 up in vanilla -> 1 across / 2 up.
-            // Baked meshes, so this one relies on the factory's pivot path.
+            // 45 degrees: spans 1m across / 1m up in vanilla -> 0.5m across / 0.5m up.
             new PieceVariantDefinition(
-                "wood_beam_67", "half_wood_beam_67",
-                "Wood beam 67\u00B0 (half)", "A half-length wooden beam at 67\u00B0.",
-                Half, SnowMode.Remove),
+                "wood_beam_45",
+                "half_wood_beam_45",
+                "Wood Beam 45\u00B0 (Half)",
+                "A half-length sturdy wooden support.",
+                Half,
+                SnowMode.Remove
+            ),
 
-            // ---------------------------------------------------------------------------------
-            // Ashwood (Blackwood). Same pattern as wood: 1m/2m straight pieces exist, so the
-            // straight ones halve the 1m piece; diagonals halve the vanilla diagonal.
-            // ---------------------------------------------------------------------------------
+            // 67 degrees: spans 1m across / 2m up in vanilla -> 0.5m across / 1m up.
             new PieceVariantDefinition(
-                "ashwood_beam_1m", "half_ashwood_beam",
-                "Ashwood beam 0.5m", "A half-length ashwood beam.",
-                Half, SnowMode.ScaleLength),
-
-            new PieceVariantDefinition(
-                "ashwood_pole_1m", "half_ashwood_pole",
-                "Ashwood pole 0.5m", "A half-length ashwood pole.",
-                Half, SnowMode.Remove),
-
-            new PieceVariantDefinition(
-                "ashwood_wall_beam_26", "half_ashwood_beam_26",
-                "Ashwood beam 26\u00B0 (half)", "A half-length ashwood beam at 26\u00B0.",
-                Half, SnowMode.Remove),
-
-            new PieceVariantDefinition(
-                "ashwood_wall_beam_45", "half_ashwood_beam_45",
-                "Ashwood beam 45\u00B0 (half)", "A half-length ashwood beam at 45\u00B0.",
-                Half, SnowMode.Remove),
-
-            new PieceVariantDefinition(
-                "ashwood_wall_beam_67", "half_ashwood_beam_67",
-                "Ashwood beam 67\u00B0 (half)", "A half-length ashwood beam at 67\u00B0.",
-                Half, SnowMode.Remove),
+                "wood_beam_67",
+                "half_wood_beam_67",
+                "Wood Beam 67\u00B0 (Half)",
+                "A half-length sturdy wooden support.",
+                Half,
+                SnowMode.Remove
+            ),
 
             // ---------------------------------------------------------------------------------
-            // Darkwood (Wood + Tar). Vanilla only has 2m straight pieces, so to get the same
-            // 0.5m / 1m / 2m set as wood we add both a 1m (x0.5) and a 0.5m (x0.25) piece.
-            // Diagonals halve the vanilla diagonal, like wood.
+            // Darkwood (Wood + Tar)
             // ---------------------------------------------------------------------------------
-            new PieceVariantDefinition(
-                "darkwood_beam", "half_darkwood_beam",
-                "Darkwood beam 1m", "A 1m darkwood beam.",
-                Half, SnowMode.Remove),
 
+            // 2m straight pole -> 0.5m.
             new PieceVariantDefinition(
-                "darkwood_beam", "quarter_darkwood_beam",
-                "Darkwood beam 0.5m", "A half-metre darkwood beam.",
-                Quarter, SnowMode.Remove),
+                "darkwood_pole",
+                "quarter_darkwood_pole",
+                "Darkwood Pole 0.5 m",
+                "Intricate designs run along this half-length support structure.",
+                Quarter,
+                SnowMode.Remove
+            ),
 
+            // 2m straight pole -> 1m.
             new PieceVariantDefinition(
-                "darkwood_pole", "half_darkwood_pole",
-                "Darkwood pole 1m", "A 1m darkwood pole.",
-                Half, SnowMode.Remove),
+                "darkwood_pole",
+                "half_darkwood_pole",
+                "Darkwood Pole 1 m",
+                "Intricate designs run along this half-length support structure.",
+                Half,
+                SnowMode.Remove
+            ),
 
+            // 2m straight beam -> 0.5m.
             new PieceVariantDefinition(
-                "darkwood_pole", "quarter_darkwood_pole",
-                "Darkwood pole 0.5m", "A half-metre darkwood pole.",
-                Quarter, SnowMode.Remove),
+                "darkwood_beam",
+                "quarter_darkwood_beam",
+                "Darkwood Beam 0.5 m",
+                "Intricate designs run along this half-length support structure.",
+                Quarter,
+                SnowMode.Remove
+            ),
 
+            // 2m straight beam -> 1m.
             new PieceVariantDefinition(
-                "darkwood_beam_26", "half_darkwood_beam_26",
-                "Darkwood beam 26\u00B0 (half)", "A half-length darkwood beam at 26\u00B0.",
-                Half, SnowMode.Remove),
+                "darkwood_beam",
+                "half_darkwood_beam",
+                "Darkwood Beam 1 m",
+                "Intricate designs run along this half-length support structure.",
+                Half,
+                SnowMode.Remove
+            ),
 
+            // 26 degrees: spans 1m across / 2m up in vanilla -> 0.5m across / 1m up.
             new PieceVariantDefinition(
-                "darkwood_beam_45", "half_darkwood_beam_45",
-                "Darkwood beam 45\u00B0 (half)", "A half-length darkwood beam at 45\u00B0.",
-                Half, SnowMode.Remove),
+                "darkwood_beam_26",
+                "half_darkwood_beam_26",
+                "Darkwood Beam 26\u00B0 (Half)",
+                "Intricate designs run along this half-length support structure.",
+                Half,
+                SnowMode.Remove
+            ),
 
+            // 45 degrees: spans 1m across / 2m up in vanilla -> 0.5m across / 1m up.
             new PieceVariantDefinition(
-                "darkwood_beam_67", "half_darkwood_beam_67",
-                "Darkwood beam 67\u00B0 (half)", "A half-length darkwood beam at 67\u00B0.",
-                Half, SnowMode.Remove),
+                "darkwood_beam_45",
+                "half_darkwood_beam_45",
+                "Darkwood Beam 45\u00B0 (Half)",
+                "Intricate designs run along this half-length support structure.",
+                Half,
+                SnowMode.Remove
+            ),
+
+            // 67 degrees: spans 1m across / 2m up in vanilla -> 0.5m across / 1m up.
+            new PieceVariantDefinition(
+                "darkwood_beam_67",
+                "half_darkwood_beam_67",
+                "Darkwood Beam 67\u00B0 (Half)",
+                "Intricate designs run along this half-length support structure.",
+                Half,
+                SnowMode.Remove
+            ),
+
+            // ---------------------------------------------------------------------------------
+            // Ashwood (Blackwood)
+            // ---------------------------------------------------------------------------------
+
+            // 1m straight beam -> 0.5m.
+            new PieceVariantDefinition(
+                "ashwood_beam_1m",
+                "half_ashwood_beam",
+                "Ashwood Beam 0.5 m",
+                "These half-length supports are always warm to the touch.",
+                Half,
+                SnowMode.ScaleLength
+            ),
+
+            // 1m straight pole -> 0.5m.
+            new PieceVariantDefinition(
+                "ashwood_pole_1m",
+                "half_ashwood_pole",
+                "Ashwood Pole 0.5 m",
+                "These half-length supports are always warm to the touch.",
+                Half,
+                SnowMode.Remove
+            ),
+
+            // 26 degrees: spans 1m across / 2m up in vanilla -> 0.5m across / 1m up.
+            new PieceVariantDefinition(
+                "ashwood_wall_beam_26",
+                "half_ashwood_beam_26",
+                "Ashwood Beam 26\u00B0 (Half)",
+                "These half-length supports are always warm to the touch.",
+                Half,
+                SnowMode.Remove
+            ),
+
+            // 45 degrees: spans 1m across / 1m up in vanilla -> 0.5m across / 0.5m up.
+            new PieceVariantDefinition(
+                "ashwood_wall_beam_45",
+                "half_ashwood_beam_45",
+                "Ashwood Beam 45\u00B0 (Half)",
+                "These half-length supports are always warm to the touch.",
+                Half,
+                SnowMode.Remove
+            ),
+
+            // 67 degrees: spans 1m across / 2m up in vanilla -> 0.5m across / 1m up.
+            new PieceVariantDefinition(
+                "ashwood_wall_beam_67",
+                "half_ashwood_beam_67",
+                "Ashwood Beam 67\u00B0 (Half)",
+                "These half-length supports are always warm to the touch.",
+                Half,
+                SnowMode.Remove
+            ),
         };
     }
 }
