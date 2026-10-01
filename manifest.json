@@ -1,6 +1,6 @@
 {
   "name": "HalfBeam",
-  "description": "0.5m wooden beams.",
+  "description": "Half-sized beams so you can build with more precision.",
   "version_number": "0.1.0",
   "dependencies": [
     "denikson-BepInExPack_Valheim-5.4.2351",
