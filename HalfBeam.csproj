@@ -34,12 +34,20 @@
     <PackageReference Include="Krafs.Publicizer" Version="2.2.1" PrivateAssets="all" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\*.png" LogicalName="Icons.%(Filename)%(Extension)" />
+  </ItemGroup>
+
   <!-- In CI (GitHub Actions) there is no local Valheim install, so game/BepInEx DLLs
        come from NuGet packages instead. Locally they come from ValheimDir above. -->
   <ItemGroup Condition="'$(GITHUB_ACTIONS)' != 'true'">
     <!-- Game + BepInEx assemblies, referenced directly from your install.
          Private=false means they're used only to compile against - never copied
          into your output folder or redistributed with the mod. -->
+    <Reference Include="netstandard">
+      <HintPath>$(ManagedDir)/netstandard.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="assembly_valheim">
       <HintPath>$(ManagedDir)/assembly_valheim.dll</HintPath>
       <Private>false</Private>
@@ -58,6 +66,10 @@
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>$(ManagedDir)/UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>$(ManagedDir)/UnityEngine.ImageConversionModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">

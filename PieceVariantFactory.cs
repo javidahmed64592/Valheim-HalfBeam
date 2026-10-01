@@ -69,10 +69,17 @@ namespace HalfBeams
 
             Resize(clone, def, log);
 
+            Sprite icon = IconLoader.Load(def.NewPrefabName, log);
+            if (icon != null)
+            {
+                clone.GetComponent<Piece>().m_icon = icon;
+            }
+
             var config = new PieceConfig
             {
                 Name = def.DisplayName,
                 Description = def.Description,
+                Icon = icon,
                 PieceTable = "Hammer",
                 Category = sourcePiece.m_category.ToString(),
                 CraftingStation = sourcePiece.m_craftingStation != null ? sourcePiece.m_craftingStation.name : "",
