@@ -145,16 +145,6 @@ namespace HalfBeams
             // Ashwood (Blackwood)
             // ---------------------------------------------------------------------------------
 
-            // 1m straight beam -> 0.5m.
-            new PieceVariantDefinition(
-                "ashwood_beam_1m",
-                "half_ashwood_beam",
-                "Ashwood Beam 0.5 m",
-                "These half-length supports are always warm to the touch.",
-                Half,
-                SnowMode.ScaleLength
-            ),
-
             // 1m straight pole -> 0.5m.
             new PieceVariantDefinition(
                 "ashwood_pole_1m",
@@ -163,6 +153,16 @@ namespace HalfBeams
                 "These half-length supports are always warm to the touch.",
                 Half,
                 SnowMode.Remove
+            ),
+
+            // 1m straight beam -> 0.5m.
+            new PieceVariantDefinition(
+                "ashwood_beam_1m",
+                "half_ashwood_beam",
+                "Ashwood Beam 0.5 m",
+                "These half-length supports are always warm to the touch.",
+                Half,
+                SnowMode.ScaleLength
             ),
 
             // 26 degrees: spans 1m across / 2m up in vanilla -> 0.5m across / 1m up.
