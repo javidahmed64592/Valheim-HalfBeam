@@ -9,6 +9,7 @@ namespace HalfBeams
     internal static class PieceVariantRegistry
     {
         private const float Half = 0.5f;
+        private const float Quarter = 0.25f;
 
         public static readonly IReadOnlyList<PieceVariantDefinition> All = new List<PieceVariantDefinition>
         {
@@ -41,6 +42,75 @@ namespace HalfBeams
             new PieceVariantDefinition(
                 "wood_beam_67", "half_wood_beam_67",
                 "Wood beam 67\u00B0 (half)", "A half-length wooden beam at 67\u00B0.",
+                Half, SnowMode.Remove),
+
+            // ---------------------------------------------------------------------------------
+            // Ashwood (Blackwood). Same pattern as wood: 1m/2m straight pieces exist, so the
+            // straight ones halve the 1m piece; diagonals halve the vanilla diagonal.
+            // ---------------------------------------------------------------------------------
+            new PieceVariantDefinition(
+                "ashwood_beam_1m", "half_ashwood_beam",
+                "Ashwood beam 0.5m", "A half-length ashwood beam.",
+                Half, SnowMode.ScaleLength),
+
+            new PieceVariantDefinition(
+                "ashwood_pole_1m", "half_ashwood_pole",
+                "Ashwood pole 0.5m", "A half-length ashwood pole.",
+                Half, SnowMode.Remove),
+
+            new PieceVariantDefinition(
+                "ashwood_wall_beam_26", "half_ashwood_beam_26",
+                "Ashwood beam 26\u00B0 (half)", "A half-length ashwood beam at 26\u00B0.",
+                Half, SnowMode.Remove),
+
+            new PieceVariantDefinition(
+                "ashwood_wall_beam_45", "half_ashwood_beam_45",
+                "Ashwood beam 45\u00B0 (half)", "A half-length ashwood beam at 45\u00B0.",
+                Half, SnowMode.Remove),
+
+            new PieceVariantDefinition(
+                "ashwood_wall_beam_67", "half_ashwood_beam_67",
+                "Ashwood beam 67\u00B0 (half)", "A half-length ashwood beam at 67\u00B0.",
+                Half, SnowMode.Remove),
+
+            // ---------------------------------------------------------------------------------
+            // Darkwood (Wood + Tar). Vanilla only has 2m straight pieces, so to get the same
+            // 0.5m / 1m / 2m set as wood we add both a 1m (x0.5) and a 0.5m (x0.25) piece.
+            // Diagonals halve the vanilla diagonal, like wood.
+            // ---------------------------------------------------------------------------------
+            new PieceVariantDefinition(
+                "darkwood_beam", "half_darkwood_beam",
+                "Darkwood beam 1m", "A 1m darkwood beam.",
+                Half, SnowMode.Remove),
+
+            new PieceVariantDefinition(
+                "darkwood_beam", "quarter_darkwood_beam",
+                "Darkwood beam 0.5m", "A half-metre darkwood beam.",
+                Quarter, SnowMode.Remove),
+
+            new PieceVariantDefinition(
+                "darkwood_pole", "half_darkwood_pole",
+                "Darkwood pole 1m", "A 1m darkwood pole.",
+                Half, SnowMode.Remove),
+
+            new PieceVariantDefinition(
+                "darkwood_pole", "quarter_darkwood_pole",
+                "Darkwood pole 0.5m", "A half-metre darkwood pole.",
+                Quarter, SnowMode.Remove),
+
+            new PieceVariantDefinition(
+                "darkwood_beam_26", "half_darkwood_beam_26",
+                "Darkwood beam 26\u00B0 (half)", "A half-length darkwood beam at 26\u00B0.",
+                Half, SnowMode.Remove),
+
+            new PieceVariantDefinition(
+                "darkwood_beam_45", "half_darkwood_beam_45",
+                "Darkwood beam 45\u00B0 (half)", "A half-length darkwood beam at 45\u00B0.",
+                Half, SnowMode.Remove),
+
+            new PieceVariantDefinition(
+                "darkwood_beam_67", "half_darkwood_beam_67",
+                "Darkwood beam 67\u00B0 (half)", "A half-length darkwood beam at 67\u00B0.",
                 Half, SnowMode.Remove),
         };
     }

@@ -13,7 +13,6 @@ namespace HalfBeams
     {
         // A local axis counts as "along the beam" when it is within ~3.5 degrees of the beam direction.
         private const float AxisAlignmentThreshold = 0.998f;
-        private const float IdentityTolerance = 0.001f;
 
         /// <summary>
         /// Geometry of a two-snap-point piece (beam or pole) in its root's space. Shortening by
@@ -151,20 +150,14 @@ namespace HalfBeams
                     }
                 }
 
-                if (child.GetComponentInChildren<Renderer>(true) == null)
+                if (child.GetComponentInChildren<Renderer>(true) == null
+                    && child.GetComponentInChildren<Collider>(true) == null)
                 {
                     continue;
                 }
 
-                // Case 2: baked geometry (the mesh itself is angled, node transform is identity).
-                // Put it under a pivot that scales along the beam axis only.
-                if (!IsIdentity(child))
-                {
-                    log.LogWarning(def.NewPrefabName + ": '" + child.name
-                                   + "' has a non-identity transform and baked geometry; left unchanged.");
-                    continue;
-                }
-
+                // Case 2: baked geometry (the mesh itself is angled, or carries detail that has no
+                // simple scale axis). Put it under a pivot that scales along the beam axis only.
                 if (pivot == null)
                 {
                     pivot = CreatePivot(root, frame);
@@ -213,13 +206,6 @@ namespace HalfBeams
             return scale;
         }
 
-        private static bool IsIdentity(Transform t)
-        {
-            return t.localPosition.sqrMagnitude < IdentityTolerance
-                   && Quaternion.Angle(t.localRotation, Quaternion.identity) < 0.01f
-                   && (t.localScale - Vector3.one).sqrMagnitude < IdentityTolerance;
-        }
-
         // Pivot whose local Z runs along the beam and is scaled by f. Children are counter-rotated
         // so that the net effect is a plain scale along the beam axis (no shear of the mesh itself).
         private static Transform CreatePivot(Transform root, BeamFrame frame)
@@ -232,12 +218,18 @@ namespace HalfBeams
             return go.transform;
         }
 
+        // Re-parents a node under the pivot so that the net transform is
+        //   world = f*c + D(old_world_position - c)
+        // i.e. the node's own rotation/scale/position are kept, then scaled along the beam about c.
         private static void Wrap(Transform node, Transform pivot, BeamFrame frame)
         {
             Quaternion inverse = Quaternion.Inverse(pivot.localRotation);
+            Quaternion oldRotation = node.localRotation;
+            Vector3 oldPosition = node.localPosition;
+
             node.SetParent(pivot, false);
-            node.localRotation = inverse;
-            node.localPosition = -(inverse * frame.Center);
+            node.localRotation = inverse * oldRotation;
+            node.localPosition = inverse * (oldPosition - frame.Center);
         }
 
         private static void HandleSnow(Transform node, PieceVariantDefinition def)
