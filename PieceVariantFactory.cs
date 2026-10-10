@@ -179,11 +179,6 @@ namespace HalfBeams
             {
                 lod.RecalculateBounds();
             }
-
-            log.LogInfo(def.NewPrefabName + ": snap distance " + before.ToString("F3")
-                        + " -> " + (snaps[0].localPosition - snaps[1].localPosition).magnitude.ToString("F3")
-                        + " (expected " + (before * f).ToString("F3") + ")"
-                        + (wrapped > 0 ? ", " + wrapped + " baked node(s) scaled via pivot" : ""));
         }
 
         // Finds the node's local axis (0=x, 1=y, 2=z) that points along the beam, if any.
