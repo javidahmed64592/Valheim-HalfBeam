@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- Removed debug logging for snap distances and baked node scaling.
+
 ## 0.1.0
 
 - Initial release.
