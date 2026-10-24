@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Added an `.editorconfig`, `Directory.Build.props` and a CI workflow that runs `dotnet format` and a Release build.
+- Reformatted the code to match the new code style rules (no behaviour change).
+- Renamed the namespace from `HalfBeams` to `HalfBeam` to match the project.
+
 ## 0.1.1
 
 - Removed debug logging for snap distances and baked node scaling.
