@@ -14,7 +14,7 @@ public class HalfBeamPlugin : BaseUnityPlugin
 {
     public const string PluginGUID = "javidahmed64592.halfbeam";
     public const string PluginName = "HalfBeam";
-    public const string PluginVersion = "0.2.0";
+    public const string PluginVersion = "0.2.1";
 
     private bool _knownRecipesRefreshed;
 

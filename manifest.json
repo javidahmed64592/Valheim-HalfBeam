@@ -1,9 +1,9 @@
 {
   "name": "HalfBeam",
   "description": "Half-sized beams so you can build with more precision.",
-  "version_number": "0.2.0",
+  "version_number": "0.2.1",
   "dependencies": [
-    "denikson-BepInExPack_Valheim-5.4.2351",
+    "denikson-BepInExPack_Valheim-5.4.2360",
     "ValheimModding-Jotunn-2.30.2"
   ],
   "website_url": "https://github.com/javidahmed64592/Valheim-HalfBeam"
