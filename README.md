@@ -21,6 +21,20 @@ Half and quarter are the fraction of the vanilla length, which is also how the i
 Diagonals are half the vanilla length, so they span 1m across and 0.5m, 1m or 2m up.
 Each piece costs half its original materials, rounded up to a minimum of 1.
 
+## Configuration
+
+This mod has no settings.
+
+## Compatibility
+
+- Other mods that add beams and poles should work alongside this one, as these are separate pieces.
+- This mod has not been tested with a gamepad, only with keyboard and mouse.
+
+## Uninstalling
+
+Half and quarter beams and poles disappear from the world when the mod is removed, so anything resting on them may collapse.
+Replace them with vanilla pieces first if you want to keep a build standing.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/javidahmed64592/Valheim-HalfBeam/blob/main/LICENSE) file for details.

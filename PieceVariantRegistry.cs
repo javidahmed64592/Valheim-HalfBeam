@@ -21,8 +21,8 @@ internal static class PieceVariantRegistry
         new PieceVariantDefinition(
             "wood_pole",
             "half_wood_pole",
-            "Wood Pole 0.5 m",
-            "A half-length sturdy wooden support.",
+            "$piece_half_wood_pole",
+            "$piece_halfbeam_wood_description",
             Half,
             SnowMode.Remove
         ),
@@ -31,8 +31,8 @@ internal static class PieceVariantRegistry
         new PieceVariantDefinition(
             "wood_beam_1",
             "half_wood_beam",
-            "Wood Beam 0.5 m",
-            "A half-length sturdy wooden support.",
+            "$piece_half_wood_beam",
+            "$piece_halfbeam_wood_description",
             Half,
             SnowMode.ScaleLength
         ),
@@ -41,8 +41,8 @@ internal static class PieceVariantRegistry
         new PieceVariantDefinition(
             "wood_beam_26",
             "half_wood_beam_26",
-            "Wood Beam 26\u00B0 (Half)",
-            "A half-length sturdy wooden support.",
+            "$piece_half_wood_beam_26",
+            "$piece_halfbeam_wood_description",
             Half,
             SnowMode.Remove
         ),
@@ -51,8 +51,8 @@ internal static class PieceVariantRegistry
         new PieceVariantDefinition(
             "wood_beam_45",
             "half_wood_beam_45",
-            "Wood Beam 45\u00B0 (Half)",
-            "A half-length sturdy wooden support.",
+            "$piece_half_wood_beam_45",
+            "$piece_halfbeam_wood_description",
             Half,
             SnowMode.Remove
         ),
@@ -61,8 +61,8 @@ internal static class PieceVariantRegistry
         new PieceVariantDefinition(
             "wood_beam_67",
             "half_wood_beam_67",
-            "Wood Beam 67\u00B0 (Half)",
-            "A half-length sturdy wooden support.",
+            "$piece_half_wood_beam_67",
+            "$piece_halfbeam_wood_description",
             Half,
             SnowMode.Remove
         ),
@@ -75,8 +75,8 @@ internal static class PieceVariantRegistry
         new PieceVariantDefinition(
             "darkwood_pole",
             "quarter_darkwood_pole",
-            "Darkwood Pole 0.5 m",
-            "Intricate designs run along this half-length support structure.",
+            "$piece_quarter_darkwood_pole",
+            "$piece_halfbeam_darkwood_description",
             Quarter,
             SnowMode.Remove
         ),
@@ -85,8 +85,8 @@ internal static class PieceVariantRegistry
         new PieceVariantDefinition(
             "darkwood_pole",
             "half_darkwood_pole",
-            "Darkwood Pole 1 m",
-            "Intricate designs run along this half-length support structure.",
+            "$piece_half_darkwood_pole",
+            "$piece_halfbeam_darkwood_description",
             Half,
             SnowMode.Remove
         ),
@@ -95,8 +95,8 @@ internal static class PieceVariantRegistry
         new PieceVariantDefinition(
             "darkwood_beam",
             "quarter_darkwood_beam",
-            "Darkwood Beam 0.5 m",
-            "Intricate designs run along this half-length support structure.",
+            "$piece_quarter_darkwood_beam",
+            "$piece_halfbeam_darkwood_description",
             Quarter,
             SnowMode.Remove
         ),
@@ -105,8 +105,8 @@ internal static class PieceVariantRegistry
         new PieceVariantDefinition(
             "darkwood_beam",
             "half_darkwood_beam",
-            "Darkwood Beam 1 m",
-            "Intricate designs run along this half-length support structure.",
+            "$piece_half_darkwood_beam",
+            "$piece_halfbeam_darkwood_description",
             Half,
             SnowMode.Remove
         ),
@@ -115,8 +115,8 @@ internal static class PieceVariantRegistry
         new PieceVariantDefinition(
             "darkwood_beam_26",
             "half_darkwood_beam_26",
-            "Darkwood Beam 26\u00B0 (Half)",
-            "Intricate designs run along this half-length support structure.",
+            "$piece_half_darkwood_beam_26",
+            "$piece_halfbeam_darkwood_description",
             Half,
             SnowMode.Remove
         ),
@@ -125,8 +125,8 @@ internal static class PieceVariantRegistry
         new PieceVariantDefinition(
             "darkwood_beam_45",
             "half_darkwood_beam_45",
-            "Darkwood Beam 45\u00B0 (Half)",
-            "Intricate designs run along this half-length support structure.",
+            "$piece_half_darkwood_beam_45",
+            "$piece_halfbeam_darkwood_description",
             Half,
             SnowMode.Remove
         ),
@@ -135,8 +135,8 @@ internal static class PieceVariantRegistry
         new PieceVariantDefinition(
             "darkwood_beam_67",
             "half_darkwood_beam_67",
-            "Darkwood Beam 67\u00B0 (Half)",
-            "Intricate designs run along this half-length support structure.",
+            "$piece_half_darkwood_beam_67",
+            "$piece_halfbeam_darkwood_description",
             Half,
             SnowMode.Remove
         ),
@@ -149,8 +149,8 @@ internal static class PieceVariantRegistry
         new PieceVariantDefinition(
             "ashwood_pole_1m",
             "half_ashwood_pole",
-            "Ashwood Pole 0.5 m",
-            "These half-length supports are always warm to the touch.",
+            "$piece_half_ashwood_pole",
+            "$piece_halfbeam_ashwood_description",
             Half,
             SnowMode.Remove
         ),
@@ -159,8 +159,8 @@ internal static class PieceVariantRegistry
         new PieceVariantDefinition(
             "ashwood_beam_1m",
             "half_ashwood_beam",
-            "Ashwood Beam 0.5 m",
-            "These half-length supports are always warm to the touch.",
+            "$piece_half_ashwood_beam",
+            "$piece_halfbeam_ashwood_description",
             Half,
             SnowMode.ScaleLength
         ),
@@ -169,8 +169,8 @@ internal static class PieceVariantRegistry
         new PieceVariantDefinition(
             "ashwood_wall_beam_26",
             "half_ashwood_beam_26",
-            "Ashwood Beam 26\u00B0 (Half)",
-            "These half-length supports are always warm to the touch.",
+            "$piece_half_ashwood_beam_26",
+            "$piece_halfbeam_ashwood_description",
             Half,
             SnowMode.Remove
         ),
@@ -179,8 +179,8 @@ internal static class PieceVariantRegistry
         new PieceVariantDefinition(
             "ashwood_wall_beam_45",
             "half_ashwood_beam_45",
-            "Ashwood Beam 45\u00B0 (Half)",
-            "These half-length supports are always warm to the touch.",
+            "$piece_half_ashwood_beam_45",
+            "$piece_halfbeam_ashwood_description",
             Half,
             SnowMode.Remove
         ),
@@ -189,8 +189,8 @@ internal static class PieceVariantRegistry
         new PieceVariantDefinition(
             "ashwood_wall_beam_67",
             "half_ashwood_beam_67",
-            "Ashwood Beam 67\u00B0 (Half)",
-            "These half-length supports are always warm to the touch.",
+            "$piece_half_ashwood_beam_67",
+            "$piece_halfbeam_ashwood_description",
             Half,
             SnowMode.Remove
         ),
