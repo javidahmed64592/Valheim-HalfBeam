@@ -4,6 +4,7 @@
 
 - Piece names and descriptions can now be translated (`Translations/English.json`). The English names are unchanged.
 - Added a CI check that the version matches in every file.
+- Moved `package.sh` into `.github/scripts` and made it the same for every mod: the name, version and DLL now come from `manifest.json` and the `.csproj`.
 
 ## 0.2.1
 
