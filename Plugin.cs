@@ -14,12 +14,14 @@ public class HalfBeamPlugin : BaseUnityPlugin
 {
     public const string PluginGUID = "javidahmed64592.halfbeam";
     public const string PluginName = "HalfBeam";
-    public const string PluginVersion = "0.2.1";
+    public const string PluginVersion = "0.3.0";
 
     private bool _knownRecipesRefreshed;
 
     private void Awake()
     {
+        Translations.Load();
+
         // Fires at the main menu once vanilla prefabs can be cloned.
         PrefabManager.OnVanillaPrefabsAvailable += RegisterPieces;
     }
