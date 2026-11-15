@@ -5,7 +5,7 @@ using BepInEx.Logging;
 
 using UnityEngine;
 
-namespace HalfBeam;
+namespace HalfBeam.Pieces;
 
 /// <summary>
 /// Loads a piece icon embedded in the DLL as "Icons.&lt;prefab name&gt;.png".

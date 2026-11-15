@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace HalfBeam;
+namespace HalfBeam.Pieces;
 
 /// <summary>
 /// The single place to edit when adding pieces. Sources are the shortest vanilla piece

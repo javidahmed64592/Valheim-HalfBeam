@@ -2,6 +2,9 @@ using System;
 
 using BepInEx;
 
+using HalfBeam.Core;
+using HalfBeam.Pieces;
+
 using Jotunn.Managers;
 using Jotunn.Utils;
 

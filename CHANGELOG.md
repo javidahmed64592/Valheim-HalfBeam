@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Moved the source files into folders (`Core`, `Pieces`), leaving only `Plugin.cs` at the root. No behaviour change.
+
 ## 0.3.0
 
 - Piece names and descriptions can now be translated (`Translations/English.json`). The English names are unchanged.

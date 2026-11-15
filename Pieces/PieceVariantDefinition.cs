@@ -1,4 +1,4 @@
-namespace HalfBeam;
+namespace HalfBeam.Pieces;
 
 /// <summary>What to do with a piece's (normally inactive) snow-cap child.</summary>
 internal enum SnowMode

@@ -10,7 +10,7 @@ using Jotunn.Managers;
 
 using UnityEngine;
 
-namespace HalfBeam;
+namespace HalfBeam.Pieces;
 
 internal static class PieceVariantFactory
 {
