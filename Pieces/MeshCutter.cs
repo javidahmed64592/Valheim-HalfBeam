@@ -51,7 +51,7 @@ internal sealed class MeshCutter(Vector3 center, Vector3 axis, float length, flo
         Matrix4x4 rootToNode = nodeToRoot.inverse;
 
         int count = data.Positions.Count;
-        List<float> along = new(count);
+        List<float> along = [];
         for (int i = 0; i < count; i++)
         {
             along.Add(Vector3.Dot(nodeToRoot.MultiplyPoint3x4(data.Positions[i]) - _center, _axis));
