@@ -4,6 +4,7 @@
 
 - Added half and quarter wood iron, timber and decorated timber beams and poles, and their half-length 26°, 45° and 67° diagonals (21 new pieces).
 - Darkwood pieces are now shortened by cutting a section out of the middle instead of being squashed, so the carved pattern keeps its size. This fixes the stretched darkwood trim from 0.1.0.
+- Timber pieces are scaled rather than cut, because their slightly barrel-shaped planks showed a seam.
 - New icons for the new pieces and the darkwood pieces, cut the same way.
 - Moved the source files into folders (`Core`, `Pieces`), leaving only `Plugin.cs` at the root. No behaviour change.
 

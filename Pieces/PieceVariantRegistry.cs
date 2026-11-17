@@ -286,7 +286,8 @@ internal static class PieceVariantRegistry
         ),
 
         // ---------------------------------------------------------------------------------
-        // Timber (Frostwood, Deep North)
+        // Timber (Frostwood, Deep North). Scaled, not cut: the plank is slightly barrel-shaped and its
+        // grain runs along the whole length, so any cut shows a step and a texture jump at the seam.
         // ---------------------------------------------------------------------------------
 
         // 2m straight pole -> 0.5m.
@@ -296,8 +297,7 @@ internal static class PieceVariantRegistry
             "$piece_quarter_stave_pole",
             "$piece_halfbeam_stave_description",
             Quarter,
-            SnowMode.Remove,
-            cut: new MeshCut(-0.7487f, 0.7513f)
+            SnowMode.Remove
         ),
 
         // 2m straight pole -> 1m.
@@ -307,8 +307,7 @@ internal static class PieceVariantRegistry
             "$piece_half_stave_pole",
             "$piece_halfbeam_stave_description",
             Half,
-            SnowMode.Remove,
-            cut: new MeshCut(-0.4987f, 0.5013f)
+            SnowMode.Remove
         ),
 
         // 2m straight beam -> 0.5m.
@@ -318,8 +317,7 @@ internal static class PieceVariantRegistry
             "$piece_quarter_stave_beam",
             "$piece_halfbeam_stave_description",
             Quarter,
-            SnowMode.Remove,
-            cut: new MeshCut(-0.7504f, 0.7496f)
+            SnowMode.Remove
         ),
 
         // 2m straight beam -> 1m.
@@ -329,8 +327,7 @@ internal static class PieceVariantRegistry
             "$piece_half_stave_beam",
             "$piece_halfbeam_stave_description",
             Half,
-            SnowMode.Remove,
-            cut: new MeshCut(-0.5004f, 0.4995f)
+            SnowMode.Remove
         ),
 
         // 26 degrees: half length.
@@ -340,8 +337,7 @@ internal static class PieceVariantRegistry
             "$piece_half_stave_beam_26",
             "$piece_halfbeam_stave_description",
             Half,
-            SnowMode.Remove,
-            cut: new MeshCut(-0.5600f, 0.5580f)
+            SnowMode.Remove
         ),
 
         // 45 degrees: half length.
@@ -351,8 +347,7 @@ internal static class PieceVariantRegistry
             "$piece_half_stave_beam_45",
             "$piece_halfbeam_stave_description",
             Half,
-            SnowMode.Remove,
-            cut: new MeshCut(-0.7957f, 0.6185f)
+            SnowMode.Remove
         ),
 
         // 67 degrees: half length.
@@ -362,8 +357,7 @@ internal static class PieceVariantRegistry
             "$piece_half_stave_beam_67",
             "$piece_halfbeam_stave_description",
             Half,
-            SnowMode.Remove,
-            cut: new MeshCut(-1.3219f, 0.9142f)
+            SnowMode.Remove
         ),
 
         // ---------------------------------------------------------------------------------

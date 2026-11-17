@@ -24,7 +24,7 @@ Half and quarter are the fraction of the vanilla length, which is also how the i
 Diagonals are half the vanilla length, so they span 1m across and 0.5m, 1m or 2m up.
 Each piece costs half its original materials, rounded up to a minimum of 1.
 
-Pieces with decoration are shortened by cutting a section out of the middle, so their trims, iron bands and patterns keep their real size.
+Darkwood, wood iron and decorated timber pieces are shortened by cutting a section out of the middle, so their trims, iron bands and patterns keep their real size. The other pieces are scaled.
 The 0.5m decorated timber pieces and the decorated timber 26° beam are squashed slightly so they show whole rings.
 
 ## Configuration
