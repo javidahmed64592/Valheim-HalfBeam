@@ -1,19 +1,15 @@
 # Changelog
 
-## Unreleased
+## 1.0.0
 
-- Added 0.5m grausten small and medium beams and pillars (the medium ones keep all ten snap points).
-- Added half and quarter wood iron, timber and decorated timber beams and poles, and their half-length 26°, 45° and 67° diagonals (21 new pieces).
-- Darkwood pieces are now shortened by cutting a section out of the middle instead of being squashed, so the carved pattern keeps its size. This fixes the stretched darkwood trim from 0.1.0.
-- Timber pieces are scaled rather than cut, because their slightly barrel-shaped planks showed a seam.
-- New icons for the new pieces and the darkwood pieces, cut the same way.
-- Added 1m and 0.5m log poles and log beams (log beams keep all four snap points), 2m, 1m and 0.5m worn log poles, and 1m and 0.5m flametal beams.
-- Added dvergr poles: a buildable full-length 2m pole (vanilla can't build it) and 1m and 0.5m poles whose copper band keeps its real size.
-- Pieces with more than two snap points can now be shortened.
-- Added 1m and 0.5m flametal pillars and half-length log beam 26°, 45° and 67° diagonals.
-- All pieces now appear on the Building and Architecture tabs, including the dvergr poles, whose vanilla piece has no tab.
-- The pieces are listed in the same order as their vanilla originals.
-- Moved the source files into folders (`Core`, `Pieces`), leaving only `Plugin.cs` at the root. No behaviour change.
+- Added shorter wood iron, timber, decorated timber, log, worn log, flametal, dvergr and grausten pieces, with half-length diagonals where vanilla has them: 42 new pieces, 59 in total.
+- Added a buildable full-length dvergr pole, which vanilla can't build.
+- Darkwood, wood iron and decorated timber pieces are shortened by cutting out a section instead of squashing, so trims, iron bands and patterns keep their size. This fixes the stretched darkwood trim.
+- Shorter dvergr poles keep their copper band at full size.
+- Log beams and the grausten medium pieces keep all their snap points.
+- Every piece is on the Architecture tab, in the same order as its vanilla original.
+- New icons that match the shortened pieces.
+- Moved the source files into folders. No behaviour change.
 
 ## 0.3.0
 
