@@ -70,7 +70,7 @@ internal static class PieceVariantFactory
         Piece clonePiece = clone.GetComponent<Piece>();
 
         // Every piece here is a beam or pole, so it belongs on the Building and Architecture tabs. Some sources
-        // have no tags at all (the dvergr pole, which vanilla can't build, and the ashwood alt diagonals).
+        // have no tags at all (the dvergr pole, which vanilla can't build).
         clonePiece.m_usage |= Piece.UsageTagFlags.Building | Piece.UsageTagFlags.Architecture;
 
         Sprite icon = IconLoader.Load(def.NewPrefabName, log);
