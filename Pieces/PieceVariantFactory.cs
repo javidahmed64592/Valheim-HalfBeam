@@ -116,9 +116,21 @@ internal static class PieceVariantFactory
         Transform pivot = null;
         int wrapped = 0;
 
+        List<Transform> visuals = def.Cut != null ? VisualRoots(clone) : [];
+        if (def.Cut != null && visuals.Count == 0)
+        {
+            log.LogWarning(def.NewPrefabName + ": no WearNTear visuals to cut; scaling instead.");
+        }
+
         foreach (Transform child in root.Cast<Transform>().ToList())
         {
             if (snaps.Contains(child))
+            {
+                continue;
+            }
+
+            // Visual meshes are cut below, so their nodes keep their transforms.
+            if (visuals.Exists(visual => visual == child || visual.IsChildOf(child)))
             {
                 continue;
             }
@@ -169,10 +181,65 @@ internal static class PieceVariantFactory
             wrapped++;
         }
 
+        if (visuals.Count > 0)
+        {
+            CutMeshes(root, visuals, frame, Vector3.Distance(a, b), def, log);
+        }
+
         // LODGroups cache their bounds from the old renderer sizes.
         foreach (LODGroup lod in clone.GetComponentsInChildren<LODGroup>(true))
         {
             lod.RecalculateBounds();
+        }
+    }
+
+    /// <summary>The piece's visual variants (new, worn, broken), whose meshes are cut rather than scaled.</summary>
+    private static List<Transform> VisualRoots(GameObject clone)
+    {
+        WearNTear wear = clone.GetComponent<WearNTear>();
+        return wear == null
+            ? []
+            : [.. new[] { wear.m_new, wear.m_worn, wear.m_broken }
+            .Where(visual => visual != null)
+            .Select(visual => visual.transform)
+            .Distinct()];
+    }
+
+    /// <summary>
+    /// Replaces every mesh under the visual variants with a copy that has the definition's slab cut out.
+    /// Meshes must be readable (all vanilla beams and poles are, apart from ashwood_wall_beam_67 and the
+    /// flametal beam); unreadable ones are left as they are and reported.
+    /// </summary>
+    private static void CutMeshes(
+        Transform root,
+        List<Transform> visuals,
+        BeamFrame frame,
+        float length,
+        PieceVariantDefinition def,
+        ManualLogSource log)
+    {
+        MeshCutter cutter = new(frame.Center, frame.Axis, length, def.LengthScale, def.Cut);
+        Matrix4x4 worldToRoot = root.worldToLocalMatrix;
+        foreach (MeshFilter filter in visuals.SelectMany(visual => visual.GetComponentsInChildren<MeshFilter>(true)))
+        {
+            Mesh mesh = filter.sharedMesh;
+            if (mesh == null)
+            {
+                continue;
+            }
+
+            if (!mesh.isReadable)
+            {
+                log.LogError(def.NewPrefabName + ": mesh '" + mesh.name + "' isn't readable, so it can't be cut.");
+                continue;
+            }
+
+            Mesh shortened = cutter.Cut(mesh, worldToRoot * filter.transform.localToWorldMatrix);
+            filter.sharedMesh = shortened;
+            if (filter.TryGetComponent(out MeshCollider meshCollider) && meshCollider.sharedMesh == mesh)
+            {
+                meshCollider.sharedMesh = shortened;
+            }
         }
     }
 

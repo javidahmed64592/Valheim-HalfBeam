@@ -5,21 +5,27 @@
 # HalfBeam
 
 Half-sized beams so you can build with more precision.
-This mod adds shorter variants of the wood, ashwood and darkwood beams and poles, 17 new pieces in total.
+This mod adds shorter variants of the wood, ashwood, darkwood, wood iron, timber and decorated timber beams and poles, 38 new pieces in total.
 
 ![HalfBeam Example](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/game_screenshot_1.png)
 
 ## Pieces
 
-| Wood type | Beams and poles              | Diagonal beams   |
-| --------- | ---------------------------- | ---------------- |
-| Wood      | 0.5m (half)                  | 26°, 45° and 67° |
-| Ashwood   | 0.5m (half)                  | 26°, 45° and 67° |
-| Darkwood  | 1m (half) and 0.5m (quarter) | 26°, 45° and 67° |
+| Wood type        | Beams and poles              | Diagonal beams   |
+| ---------------- | ---------------------------- | ---------------- |
+| Wood             | 0.5m (half)                  | 26°, 45° and 67° |
+| Ashwood          | 0.5m (half)                  | 26°, 45° and 67° |
+| Darkwood         | 1m (half) and 0.5m (quarter) | 26°, 45° and 67° |
+| Wood iron        | 1m (half) and 0.5m (quarter) | 26°, 45° and 67° |
+| Timber           | 1m (half) and 0.5m (quarter) | 26°, 45° and 67° |
+| Decorated timber | 1m (half) and 0.5m (quarter) | 26°, 45° and 67° |
 
 Half and quarter are the fraction of the vanilla length, which is also how the icons are named.
 Diagonals are half the vanilla length, so they span 1m across and 0.5m, 1m or 2m up.
 Each piece costs half its original materials, rounded up to a minimum of 1.
+
+Darkwood, wood iron and decorated timber pieces are shortened by cutting a section out of the middle, so their trims, iron bands and patterns keep their real size. The other pieces are scaled.
+The 0.5m decorated timber pieces and the decorated timber 26° beam are squashed slightly so they show whole rings.
 
 ## Configuration
 
