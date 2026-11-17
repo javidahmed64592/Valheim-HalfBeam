@@ -5,16 +5,8 @@
 # HalfBeam
 
 Half-sized beams so you can build with more precision.
-This mod adds shorter variants of the wood, ashwood, darkwood, wood iron, timber, decorated timber, log, flametal, dvergr and grausten beams and poles, 59 new pieces in total.
 
-![Wood](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/wood.png)
-![Wood Iron](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/wood_iron.png)
-![Darkwood](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/darkwood.png)
-![Dvergr](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/dvergr.png)
-![Ashwood](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/ashwood.png)
-![Decorated Timber](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/decorated_timber.png)
-
-## Pieces
+![Build Menu](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/build_menu.png)
 
 | Wood type        | Beams and poles                                  | Diagonal beams   |
 | ---------------- | ------------------------------------------------ | ---------------- |
@@ -30,7 +22,12 @@ This mod adds shorter variants of the wood, ashwood, darkwood, wood iron, timber
 | Timber           | 1m (half) and 0.5m (quarter)                     | 26°, 45° and 67° |
 | Decorated timber | 1m (half) and 0.5m (quarter)                     | 26°, 45° and 67° |
 
-![Build Menu](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/build_menu.png)
+![Wood](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/wood.png)
+![Wood Iron](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/wood_iron.png)
+![Darkwood](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/darkwood.png)
+![Dvergr](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/dvergr.png)
+![Ashwood](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/ashwood.png)
+![Decorated Timber](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/decorated_timber.png)
 
 ## Configuration
 
