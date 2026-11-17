@@ -7,7 +7,12 @@
 Half-sized beams so you can build with more precision.
 This mod adds shorter variants of the wood, ashwood, darkwood, wood iron, timber, decorated timber, log, flametal, dvergr and grausten beams and poles, 59 new pieces in total.
 
-![HalfBeam Example](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/game_screenshot_1.png)
+![Wood](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/wood.png)
+![Wood Iron](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/wood_iron.png)
+![Darkwood](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/darkwood.png)
+![Dvergr](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/dvergr.png)
+![Ashwood](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/ashwood.png)
+![Decorated Timber](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/decorated_timber.png)
 
 ## Pieces
 
@@ -25,16 +30,7 @@ This mod adds shorter variants of the wood, ashwood, darkwood, wood iron, timber
 | Timber           | 1m (half) and 0.5m (quarter)                     | 26°, 45° and 67° |
 | Decorated timber | 1m (half) and 0.5m (quarter)                     | 26°, 45° and 67° |
 
-Full, half, quarter and eighth are the fraction of the vanilla length, which is also how the icons are named.
-Diagonals are half the vanilla length, so they span 1m across and 0.5m, 1m or 2m up.
-Each piece costs half its original materials, rounded up to a minimum of 1.
-The new pieces are listed in the same order as their vanilla originals, so they're easy to find in the Architecture tab.
-Vanilla can't build the dvergr pole, so this mod also adds a full-length 2m one.
-Log beams keep all four snap points, along the top and bottom at each end.
-
-Darkwood, wood iron and decorated timber pieces are shortened by cutting a section out of the middle, so their trims, iron bands and patterns keep their real size. The other pieces are scaled.
-The 0.5m decorated timber pieces and the decorated timber 26° beam are squashed slightly so they show whole rings.
-Shorter dvergr poles keep their copper band at its real size, and only the wood is scaled.
+![Build Menu](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/build_menu.png)
 
 ## Configuration
 
