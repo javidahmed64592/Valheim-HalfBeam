@@ -56,9 +56,9 @@ internal static class PieceVariantFactory
 
         List<Transform> sourceSnaps = [];
         sourcePiece.GetSnapPoints(sourceSnaps);
-        if (sourceSnaps.Count != 2)
+        if (sourceSnaps.Count < 2)
         {
-            log.LogError(def.SourcePrefabName + ": expected exactly 2 snap points (beam or pole), found "
+            log.LogError(def.SourcePrefabName + ": expected at least 2 snap points (beam or pole), found "
                          + sourceSnaps.Count + ". Skipped.");
             return;
         }
@@ -67,10 +67,16 @@ internal static class PieceVariantFactory
 
         Resize(clone, def, log);
 
+        Piece clonePiece = clone.GetComponent<Piece>();
+
+        // Every piece here is a beam or pole, so it belongs on the Building and Architecture tabs. Some sources
+        // have no tags at all (the dvergr pole, which vanilla can't build, and the ashwood alt diagonals).
+        clonePiece.m_usage |= Piece.UsageTagFlags.Building | Piece.UsageTagFlags.Architecture;
+
         Sprite icon = IconLoader.Load(def.NewPrefabName, log);
         if (icon != null)
         {
-            clone.GetComponent<Piece>().m_icon = icon;
+            clonePiece.m_icon = icon;
         }
 
         PieceConfig config = new()
@@ -103,11 +109,10 @@ internal static class PieceVariantFactory
         List<Transform> snaps = [];
         piece.GetSnapPoints(snaps);
 
-        Vector3 a = snaps[0].localPosition;
-        Vector3 b = snaps[1].localPosition;
-        BeamFrame frame = new((a + b) * 0.5f, (b - a).normalized, f);
+        (Vector3 center, Vector3 beamAxis, float length) = SnapFrame(snaps);
+        BeamFrame frame = new(center, beamAxis, f);
 
-        // Snap points sit on the beam's centre line, so this is the same as halving their positions.
+        // Every snap point keeps its offset across the beam and moves along it with the piece's length.
         foreach (Transform snap in snaps)
         {
             snap.localPosition = frame.MapPoint(snap.localPosition);
@@ -116,10 +121,11 @@ internal static class PieceVariantFactory
         Transform pivot = null;
         int wrapped = 0;
 
-        List<Transform> visuals = def.Cut != null ? VisualRoots(clone) : [];
-        if (def.Cut != null && visuals.Count == 0)
+        bool reshapesMeshes = def.Cut != null || def.Keep != null;
+        List<Transform> visuals = reshapesMeshes ? VisualRoots(clone) : [];
+        if (reshapesMeshes && visuals.Count == 0)
         {
-            log.LogWarning(def.NewPrefabName + ": no WearNTear visuals to cut; scaling instead.");
+            log.LogWarning(def.NewPrefabName + ": no WearNTear visuals to reshape; scaling instead.");
         }
 
         foreach (Transform child in root.Cast<Transform>().ToList())
@@ -183,7 +189,7 @@ internal static class PieceVariantFactory
 
         if (visuals.Count > 0)
         {
-            CutMeshes(root, visuals, frame, Vector3.Distance(a, b), def, log);
+            ReshapeMeshes(root, visuals, MeshShortener(frame, length, def, log), def, log);
         }
 
         // LODGroups cache their bounds from the old renderer sizes.
@@ -206,19 +212,77 @@ internal static class PieceVariantFactory
     }
 
     /// <summary>
-    /// Replaces every mesh under the visual variants with a copy that has the definition's slab cut out.
-    /// Meshes must be readable (all vanilla beams and poles are, apart from ashwood_wall_beam_67 and the
-    /// flametal beam); unreadable ones are left as they are and reported.
+    /// The beam's axis from its snap points: the line between them when there are two, or, with more (the
+    /// log beam has a top and bottom snap point at each end), the local axis along which they spread
+    /// furthest, through the middle of their bounding box. Matches <c>Prefab.beam_axis</c> in
+    /// Valheim-AssetTools, so the cut positions found there line up.
     /// </summary>
-    private static void CutMeshes(
-        Transform root,
-        List<Transform> visuals,
+    private static (Vector3 Center, Vector3 Axis, float Length) SnapFrame(List<Transform> snaps)
+    {
+        if (snaps.Count == 2)
+        {
+            Vector3 a = snaps[0].localPosition;
+            Vector3 b = snaps[1].localPosition;
+            return ((a + b) * 0.5f, (b - a).normalized, Vector3.Distance(a, b));
+        }
+
+        Vector3 low = snaps[0].localPosition;
+        Vector3 high = low;
+        foreach (Transform snap in snaps)
+        {
+            low = Vector3.Min(low, snap.localPosition);
+            high = Vector3.Max(high, snap.localPosition);
+        }
+
+        Vector3 size = high - low;
+        int index = 0;
+        for (int i = 1; i < 3; i++)
+        {
+            if (size[i] > size[index])
+            {
+                index = i;
+            }
+        }
+
+        Vector3 axis = Vector3.zero;
+        axis[index] = 1f;
+        return ((low + high) * 0.5f, axis, size[index]);
+    }
+
+    /// <summary>The function that shortens one visual mesh: a cut, or a stretch around a kept span.</summary>
+    private static Func<Mesh, Matrix4x4, Mesh> MeshShortener(
         BeamFrame frame,
         float length,
         PieceVariantDefinition def,
         ManualLogSource log)
     {
-        MeshCutter cutter = new(frame.Center, frame.Axis, length, def.LengthScale, def.Cut);
+        if (def.Cut != null)
+        {
+            return new MeshCutter(frame.Center, frame.Axis, length, def.LengthScale, def.Cut).Cut;
+        }
+
+        SpanStretcher stretcher = new(frame.Center, frame.Axis, length, def.LengthScale, def.Keep);
+        if (!stretcher.Fits)
+        {
+            log.LogError(def.NewPrefabName + ": the kept span is longer than the new piece; meshes left as they are.");
+            return (mesh, _) => mesh;
+        }
+
+        return stretcher.Stretch;
+    }
+
+    /// <summary>
+    /// Replaces every mesh under the visual variants with a shortened copy (cut or stretched).
+    /// Meshes must be readable (all vanilla beams and poles are, apart from ashwood_wall_beam_67 and the
+    /// flametal beam); unreadable ones are left as they are and reported.
+    /// </summary>
+    private static void ReshapeMeshes(
+        Transform root,
+        List<Transform> visuals,
+        Func<Mesh, Matrix4x4, Mesh> shorten,
+        PieceVariantDefinition def,
+        ManualLogSource log)
+    {
         Matrix4x4 worldToRoot = root.worldToLocalMatrix;
         foreach (MeshFilter filter in visuals.SelectMany(visual => visual.GetComponentsInChildren<MeshFilter>(true)))
         {
@@ -230,11 +294,11 @@ internal static class PieceVariantFactory
 
             if (!mesh.isReadable)
             {
-                log.LogError(def.NewPrefabName + ": mesh '" + mesh.name + "' isn't readable, so it can't be cut.");
+                log.LogError(def.NewPrefabName + ": mesh '" + mesh.name + "' isn't readable, so it can't be reshaped.");
                 continue;
             }
 
-            Mesh shortened = cutter.Cut(mesh, worldToRoot * filter.transform.localToWorldMatrix);
+            Mesh shortened = shorten(mesh, worldToRoot * filter.transform.localToWorldMatrix);
             filter.sharedMesh = shortened;
             if (filter.TryGetComponent(out MeshCollider meshCollider) && meshCollider.sharedMesh == mesh)
             {

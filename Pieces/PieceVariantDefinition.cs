@@ -22,7 +22,8 @@ internal sealed class PieceVariantDefinition(
     float lengthScale,
     SnowMode snow,
     float? costRatio = null,
-    MeshCut cut = null)
+    MeshCut cut = null,
+    KeepSpan keep = null)
 {
     public string SourcePrefabName { get; } = sourcePrefabName;
     public string NewPrefabName { get; } = newPrefabName;
@@ -42,4 +43,10 @@ internal sealed class PieceVariantDefinition(
     /// keeping trims and patterns at their real size, instead of being scaled along the beam.
     /// </summary>
     public MeshCut Cut { get; } = cut;
+
+    /// <summary>
+    /// When set (and <see cref="Cut"/> isn't), the visual meshes are scaled along the beam everywhere except
+    /// this span, which keeps its real size. Nothing is removed, so there's no seam.
+    /// </summary>
+    public KeepSpan Keep { get; } = keep;
 }
