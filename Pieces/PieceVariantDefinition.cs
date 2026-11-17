@@ -23,7 +23,8 @@ internal sealed class PieceVariantDefinition(
     SnowMode snow,
     float? costRatio = null,
     MeshCut cut = null,
-    KeepSpan keep = null)
+    KeepSpan keep = null,
+    SnapAxis? axis = null)
 {
     public string SourcePrefabName { get; } = sourcePrefabName;
     public string NewPrefabName { get; } = newPrefabName;
@@ -49,4 +50,10 @@ internal sealed class PieceVariantDefinition(
     /// this span, which keeps its real size. Nothing is removed, so there's no seam.
     /// </summary>
     public KeepSpan Keep { get; } = keep;
+
+    /// <summary>
+    /// The root axis the piece is shortened along, for pieces whose snap points don't show it. When null,
+    /// it comes from the snap points (see PieceVariantFactory.SnapFrame).
+    /// </summary>
+    public SnapAxis? Axis { get; } = axis;
 }
