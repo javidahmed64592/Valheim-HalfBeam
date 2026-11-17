@@ -21,7 +21,8 @@ internal sealed class PieceVariantDefinition(
     string description,
     float lengthScale,
     SnowMode snow,
-    float? costRatio = null)
+    float? costRatio = null,
+    MeshCut cut = null)
 {
     public string SourcePrefabName { get; } = sourcePrefabName;
     public string NewPrefabName { get; } = newPrefabName;
@@ -35,4 +36,10 @@ internal sealed class PieceVariantDefinition(
     public float CostRatio { get; } = costRatio ?? lengthScale;
 
     public SnowMode Snow { get; } = snow;
+
+    /// <summary>
+    /// When set, the visual meshes (WearNTear's new/worn/broken) are shortened by cutting this slab out,
+    /// keeping trims and patterns at their real size, instead of being scaled along the beam.
+    /// </summary>
+    public MeshCut Cut { get; } = cut;
 }
