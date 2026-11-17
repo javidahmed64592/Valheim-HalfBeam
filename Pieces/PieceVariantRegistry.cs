@@ -12,6 +12,8 @@ internal static class PieceVariantRegistry
 {
     private const float Half = 0.5f;
     private const float Quarter = 0.25f;
+    private const float Eighth = 0.125f;
+    private const float Full = 1f;
 
     public static readonly IReadOnlyList<PieceVariantDefinition> All =
     [
@@ -440,6 +442,165 @@ internal static class PieceVariantRegistry
             Half,
             SnowMode.Remove,
             cut: new MeshCut(-1.1176f, 1.1184f)
+        ),
+
+        // ---------------------------------------------------------------------------------
+        // Dvergr (Yggdrasil wood + Copper). Vanilla can't build this pole, so a full-length copy is added too.
+        // The copper band keeps its real size and only the wood is scaled (the band may not spawn: RandomSpawn)
+        // ---------------------------------------------------------------------------------
+
+        // 2m pole, buildable (vanilla has it disabled).
+        new PieceVariantDefinition(
+            "piece_dvergr_pole",
+            "full_dvergr_pole",
+            "$piece_full_dvergr_pole",
+            "$piece_halfbeam_dvergr_description",
+            Full,
+            SnowMode.Remove
+        ),
+
+        // 2m pole -> 1m, band kept.
+        new PieceVariantDefinition(
+            "piece_dvergr_pole",
+            "half_dvergr_pole",
+            "$piece_half_dvergr_pole",
+            "$piece_halfbeam_dvergr_description",
+            Half,
+            SnowMode.Remove,
+            keep: new KeepSpan(-0.467f, -0.090f)
+        ),
+
+        // 2m pole -> 0.5m, band kept.
+        new PieceVariantDefinition(
+            "piece_dvergr_pole",
+            "quarter_dvergr_pole",
+            "$piece_quarter_dvergr_pole",
+            "$piece_halfbeam_dvergr_description",
+            Quarter,
+            SnowMode.Remove,
+            keep: new KeepSpan(-0.467f, -0.090f)
+        ),
+
+        // ---------------------------------------------------------------------------------
+        // Core wood logs (scaled)
+        // ---------------------------------------------------------------------------------
+
+        // 2m log pole -> 1m.
+        new PieceVariantDefinition(
+            "wood_pole_log",
+            "half_log_pole",
+            "$piece_half_log_pole",
+            "$piece_halfbeam_log_description",
+            Half,
+            SnowMode.Remove
+        ),
+
+        // 2m log pole -> 0.5m.
+        new PieceVariantDefinition(
+            "wood_pole_log",
+            "quarter_log_pole",
+            "$piece_quarter_log_pole",
+            "$piece_halfbeam_log_description",
+            Quarter,
+            SnowMode.Remove
+        ),
+
+        // 2m log beam -> 1m. Keeps all four snap points (top and bottom at each end).
+        new PieceVariantDefinition(
+            "wood_wall_log",
+            "half_log_beam",
+            "$piece_half_log_beam",
+            "$piece_halfbeam_log_description",
+            Half,
+            SnowMode.ScaleLength
+        ),
+
+        // 2m log beam -> 0.5m.
+        new PieceVariantDefinition(
+            "wood_wall_log",
+            "quarter_log_beam",
+            "$piece_quarter_log_beam",
+            "$piece_halfbeam_log_description",
+            Quarter,
+            SnowMode.ScaleLength
+        ),
+
+        // 4m worn log pole -> 2m (vanilla only has the 4m worn log).
+        new PieceVariantDefinition(
+            "wood_pole_log_4_worn",
+            "half_worn_log_pole",
+            "$piece_half_worn_log_pole",
+            "$piece_halfbeam_log_description",
+            Half,
+            SnowMode.Remove
+        ),
+
+        // 4m worn log pole -> 1m.
+        new PieceVariantDefinition(
+            "wood_pole_log_4_worn",
+            "quarter_worn_log_pole",
+            "$piece_quarter_worn_log_pole",
+            "$piece_halfbeam_log_description",
+            Quarter,
+            SnowMode.Remove
+        ),
+
+        // 4m worn log pole -> 0.5m.
+        new PieceVariantDefinition(
+            "wood_pole_log_4_worn",
+            "eighth_worn_log_pole",
+            "$piece_eighth_worn_log_pole",
+            "$piece_halfbeam_log_description",
+            Eighth,
+            SnowMode.Remove
+        ),
+
+        // ---------------------------------------------------------------------------------
+        // Flametal (scaled)
+        // ---------------------------------------------------------------------------------
+
+        // 2m beam -> 1m.
+        new PieceVariantDefinition(
+            "Piece_flametal_beam",
+            "half_flametal_beam",
+            "$piece_half_flametal_beam",
+            "$piece_halfbeam_flametal_description",
+            Half,
+            SnowMode.Remove
+        ),
+
+        // 2m beam -> 0.5m.
+        new PieceVariantDefinition(
+            "Piece_flametal_beam",
+            "quarter_flametal_beam",
+            "$piece_quarter_flametal_beam",
+            "$piece_halfbeam_flametal_description",
+            Quarter,
+            SnowMode.Remove
+        ),
+
+        // ---------------------------------------------------------------------------------
+        // Ashwood alternative diagonals (scaled)
+        // ---------------------------------------------------------------------------------
+
+        // 26 degrees (alt): half length.
+        new PieceVariantDefinition(
+            "ashwood_wall_beam_26_alt",
+            "half_ashwood_beam_26_alt",
+            "$piece_half_ashwood_beam_26_alt",
+            "$piece_halfbeam_ashwood_description",
+            Half,
+            SnowMode.Remove
+        ),
+
+        // 45 degrees (alt): half length.
+        new PieceVariantDefinition(
+            "ashwood_wall_beam_45_alt",
+            "half_ashwood_beam_45_alt",
+            "$piece_half_ashwood_beam_45_alt",
+            "$piece_halfbeam_ashwood_description",
+            Half,
+            SnowMode.Remove
         ),
     ];
 }

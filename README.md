@@ -5,7 +5,7 @@
 # HalfBeam
 
 Half-sized beams so you can build with more precision.
-This mod adds shorter variants of the wood, ashwood, darkwood, wood iron, timber and decorated timber beams and poles, 38 new pieces in total.
+This mod adds shorter variants of the wood, ashwood, darkwood, wood iron, timber, decorated timber, log, flametal and dvergr beams and poles, 52 new pieces in total.
 
 ![HalfBeam Example](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/game_screenshot_1.png)
 
@@ -14,18 +14,25 @@ This mod adds shorter variants of the wood, ashwood, darkwood, wood iron, timber
 | Wood type        | Beams and poles              | Diagonal beams   |
 | ---------------- | ---------------------------- | ---------------- |
 | Wood             | 0.5m (half)                  | 26°, 45° and 67° |
-| Ashwood          | 0.5m (half)                  | 26°, 45° and 67° |
+| Ashwood          | 0.5m (half)                  | 26°, 45° and 67°, and the 26° and 45° alternatives |
 | Darkwood         | 1m (half) and 0.5m (quarter) | 26°, 45° and 67° |
 | Wood iron        | 1m (half) and 0.5m (quarter) | 26°, 45° and 67° |
 | Timber           | 1m (half) and 0.5m (quarter) | 26°, 45° and 67° |
 | Decorated timber | 1m (half) and 0.5m (quarter) | 26°, 45° and 67° |
+| Log (core wood)  | Poles and beams: 1m and 0.5m | -                |
+| Worn log         | Poles: 2m, 1m and 0.5m       | -                |
+| Flametal         | Beams: 1m and 0.5m           | -                |
+| Dvergr           | Poles: 2m, 1m and 0.5m       | -                |
 
 Half and quarter are the fraction of the vanilla length, which is also how the icons are named.
 Diagonals are half the vanilla length, so they span 1m across and 0.5m, 1m or 2m up.
 Each piece costs half its original materials, rounded up to a minimum of 1.
+Vanilla can't build the dvergr pole, so this mod also adds a full-length 2m one.
+Log beams keep all four snap points, along the top and bottom at each end.
 
 Darkwood, wood iron and decorated timber pieces are shortened by cutting a section out of the middle, so their trims, iron bands and patterns keep their real size. The other pieces are scaled.
 The 0.5m decorated timber pieces and the decorated timber 26° beam are squashed slightly so they show whole rings.
+Shorter dvergr poles keep their copper band at its real size, and only the wood is scaled.
 
 ## Configuration
 
