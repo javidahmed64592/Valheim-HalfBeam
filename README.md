@@ -5,7 +5,7 @@
 # HalfBeam
 
 Half-sized beams so you can build with more precision.
-This mod adds shorter variants of the wood, ashwood, darkwood, wood iron, timber, decorated timber, log, flametal and dvergr beams and poles, 52 new pieces in total.
+This mod adds shorter variants of the wood, ashwood, darkwood, wood iron, timber, decorated timber, log, flametal and dvergr beams and poles, 57 new pieces in total.
 
 ![HalfBeam Example](https://github.com/javidahmed64592/Valheim-HalfBeam/raw/main/images/game_screenshot_1.png)
 
@@ -19,9 +19,9 @@ This mod adds shorter variants of the wood, ashwood, darkwood, wood iron, timber
 | Wood iron        | 1m (half) and 0.5m (quarter) | 26°, 45° and 67° |
 | Timber           | 1m (half) and 0.5m (quarter) | 26°, 45° and 67° |
 | Decorated timber | 1m (half) and 0.5m (quarter) | 26°, 45° and 67° |
-| Log (core wood)  | Poles and beams: 1m and 0.5m | -                |
+| Log (core wood)  | Poles and beams: 1m and 0.5m | 26°, 45° and 67° |
 | Worn log         | Poles: 2m, 1m and 0.5m       | -                |
-| Flametal         | Beams: 1m and 0.5m           | -                |
+| Flametal         | Beams and pillars: 1m and 0.5m | -              |
 | Dvergr           | Poles: 2m, 1m and 0.5m       | -                |
 
 Half and quarter are the fraction of the vanilla length, which is also how the icons are named.

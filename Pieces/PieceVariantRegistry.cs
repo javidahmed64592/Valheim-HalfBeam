@@ -525,6 +525,36 @@ internal static class PieceVariantRegistry
             SnowMode.ScaleLength
         ),
 
+        // 26 degrees: half length.
+        new PieceVariantDefinition(
+            "wood_log_26",
+            "half_log_beam_26",
+            "$piece_half_log_beam_26",
+            "$piece_halfbeam_log_description",
+            Half,
+            SnowMode.Remove
+        ),
+
+        // 45 degrees: half length.
+        new PieceVariantDefinition(
+            "wood_log_45",
+            "half_log_beam_45",
+            "$piece_half_log_beam_45",
+            "$piece_halfbeam_log_description",
+            Half,
+            SnowMode.Remove
+        ),
+
+        // 67 degrees: half length.
+        new PieceVariantDefinition(
+            "wood_log_67",
+            "half_log_beam_67",
+            "$piece_half_log_beam_67",
+            "$piece_halfbeam_log_description",
+            Half,
+            SnowMode.Remove
+        ),
+
         // 4m worn log pole -> 2m (vanilla only has the 4m worn log).
         new PieceVariantDefinition(
             "wood_pole_log_4_worn",
@@ -556,7 +586,7 @@ internal static class PieceVariantRegistry
         ),
 
         // ---------------------------------------------------------------------------------
-        // Flametal (scaled)
+        // Flametal beams and pillars (scaled; the meshes aren't readable, which scaling doesn't need)
         // ---------------------------------------------------------------------------------
 
         // 2m beam -> 1m.
@@ -574,6 +604,26 @@ internal static class PieceVariantRegistry
             "Piece_flametal_beam",
             "quarter_flametal_beam",
             "$piece_quarter_flametal_beam",
+            "$piece_halfbeam_flametal_description",
+            Quarter,
+            SnowMode.Remove
+        ),
+
+        // 2m pillar -> 1m.
+        new PieceVariantDefinition(
+            "Piece_flametal_pillar",
+            "half_flametal_pillar",
+            "$piece_half_flametal_pillar",
+            "$piece_halfbeam_flametal_description",
+            Half,
+            SnowMode.Remove
+        ),
+
+        // 2m pillar -> 0.5m.
+        new PieceVariantDefinition(
+            "Piece_flametal_pillar",
+            "quarter_flametal_pillar",
+            "$piece_quarter_flametal_pillar",
             "$piece_halfbeam_flametal_description",
             Quarter,
             SnowMode.Remove

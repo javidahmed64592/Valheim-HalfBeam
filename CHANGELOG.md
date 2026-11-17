@@ -9,6 +9,8 @@
 - Added 1m and 0.5m log poles and log beams (log beams keep all four snap points), 2m, 1m and 0.5m worn log poles, 1m and 0.5m flametal beams, and half-length ashwood 26° and 45° alternative diagonals.
 - Added dvergr poles: a buildable full-length 2m pole (vanilla can't build it) and 1m and 0.5m poles whose copper band keeps its real size.
 - Pieces with more than two snap points can now be shortened.
+- Added 1m and 0.5m flametal pillars and half-length log beam 26°, 45° and 67° diagonals.
+- All pieces now appear on the Building and Architecture tabs, including the dvergr poles and ashwood alternative diagonals, whose vanilla pieces have no tab.
 - Moved the source files into folders (`Core`, `Pieces`), leaving only `Plugin.cs` at the root. No behaviour change.
 
 ## 0.3.0
