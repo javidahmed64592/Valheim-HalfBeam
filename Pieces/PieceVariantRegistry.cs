@@ -652,5 +652,52 @@ internal static class PieceVariantRegistry
             Half,
             SnowMode.Remove
         ),
+
+        // ---------------------------------------------------------------------------------
+        // Grausten (scaled). The medium pieces are 1m cubes with snap points on every face, so their
+        // axis is given explicitly; every snap point keeps its place across the face.
+        // ---------------------------------------------------------------------------------
+
+        // 1m small beam -> 0.5m.
+        new PieceVariantDefinition(
+            "Piece_grausten_pillarbeam_small",
+            "half_grausten_beam_small",
+            "$piece_half_grausten_beam_small",
+            "$piece_halfbeam_grausten_description",
+            Half,
+            SnowMode.Remove
+        ),
+
+        // 1m small pillar -> 0.5m.
+        new PieceVariantDefinition(
+            "Piece_grausten_pillarbase_small",
+            "half_grausten_pillar_small",
+            "$piece_half_grausten_pillar_small",
+            "$piece_halfbeam_grausten_description",
+            Half,
+            SnowMode.Remove
+        ),
+
+        // 1m medium beam -> 0.5m.
+        new PieceVariantDefinition(
+            "Piece_grausten_pillarbeam_medium",
+            "half_grausten_beam_medium",
+            "$piece_half_grausten_beam_medium",
+            "$piece_halfbeam_grausten_description",
+            Half,
+            SnowMode.Remove,
+            axis: SnapAxis.X
+        ),
+
+        // 1m medium pillar -> 0.5m.
+        new PieceVariantDefinition(
+            "Piece_grausten_pillarbase_medium",
+            "half_grausten_pillar_medium",
+            "$piece_half_grausten_pillar_medium",
+            "$piece_halfbeam_grausten_description",
+            Half,
+            SnowMode.Remove,
+            axis: SnapAxis.Y
+        ),
     ];
 }

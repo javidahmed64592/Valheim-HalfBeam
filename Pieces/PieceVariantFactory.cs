@@ -109,7 +109,7 @@ internal static class PieceVariantFactory
         List<Transform> snaps = [];
         piece.GetSnapPoints(snaps);
 
-        (Vector3 center, Vector3 beamAxis, float length) = SnapFrame(snaps);
+        (Vector3 center, Vector3 beamAxis, float length) = SnapFrame(snaps, def.Axis);
         BeamFrame frame = new(center, beamAxis, f);
 
         // Every snap point keeps its offset across the beam and moves along it with the piece's length.
@@ -214,12 +214,12 @@ internal static class PieceVariantFactory
     /// <summary>
     /// The beam's axis from its snap points: the line between them when there are two, or, with more (the
     /// log beam has a top and bottom snap point at each end), the local axis along which they spread
-    /// furthest, through the middle of their bounding box. Matches <c>Prefab.beam_axis</c> in
+    /// furthest, through the middle of their bounding box (or along an explicit axis). Matches <c>Prefab.beam_axis</c> in
     /// Valheim-AssetTools, so the cut positions found there line up.
     /// </summary>
-    private static (Vector3 Center, Vector3 Axis, float Length) SnapFrame(List<Transform> snaps)
+    private static (Vector3 Center, Vector3 Axis, float Length) SnapFrame(List<Transform> snaps, SnapAxis? along)
     {
-        if (snaps.Count == 2)
+        if (snaps.Count == 2 && along == null)
         {
             Vector3 a = snaps[0].localPosition;
             Vector3 b = snaps[1].localPosition;
@@ -242,6 +242,11 @@ internal static class PieceVariantFactory
             {
                 index = i;
             }
+        }
+
+        if (along != null)
+        {
+            index = (int)along.Value;
         }
 
         Vector3 axis = Vector3.zero;
