@@ -11,21 +11,21 @@ This mod adds shorter variants of the wood, ashwood, darkwood, wood iron, timber
 
 ## Pieces
 
-| Wood type        | Beams and poles              | Diagonal beams   |
-| ---------------- | ---------------------------- | ---------------- |
-| Wood             | 0.5m (half)                  | 26°, 45° and 67° |
-| Ashwood          | 0.5m (half)                  | 26°, 45° and 67° |
-| Darkwood         | 1m (half) and 0.5m (quarter) | 26°, 45° and 67° |
-| Wood iron        | 1m (half) and 0.5m (quarter) | 26°, 45° and 67° |
-| Timber           | 1m (half) and 0.5m (quarter) | 26°, 45° and 67° |
-| Decorated timber | 1m (half) and 0.5m (quarter) | 26°, 45° and 67° |
-| Log (core wood)  | Poles and beams: 1m and 0.5m | 26°, 45° and 67° |
-| Worn log         | Poles: 2m, 1m and 0.5m       | -                |
-| Flametal         | Beams and pillars: 1m and 0.5m | -              |
-| Dvergr           | Poles: 2m, 1m and 0.5m       | -                |
-| Grausten         | Small and medium beams and pillars: 0.5m | -    |
+| Wood type        | Beams and poles                                  | Diagonal beams   |
+| ---------------- | ------------------------------------------------ | ---------------- |
+| Wood             | 0.5m (half)                                      | 26°, 45° and 67° |
+| Log (core wood)  | 1m (half) and 0.5m (quarter)                     | 26°, 45° and 67° |
+| Worn log         | Poles: 2m (half), 1m (quarter) and 0.5m (eighth) | -                |
+| Wood iron        | 1m (half) and 0.5m (quarter)                     | 26°, 45° and 67° |
+| Darkwood         | 1m (half) and 0.5m (quarter)                     | 26°, 45° and 67° |
+| Dvergr           | Poles: 2m (full), 1m (half) and 0.5m (quarter)   | -                |
+| Ashwood          | 0.5m (half)                                      | 26°, 45° and 67° |
+| Grausten         | Small and medium beams and pillars: 0.5m (half)  | -                |
+| Flametal         | Beams and pillars: 1m (half) and 0.5m (quarter)  | -                |
+| Timber           | 1m (half) and 0.5m (quarter)                     | 26°, 45° and 67° |
+| Decorated timber | 1m (half) and 0.5m (quarter)                     | 26°, 45° and 67° |
 
-Half and quarter are the fraction of the vanilla length, which is also how the icons are named.
+Full, half, quarter and eighth are the fraction of the vanilla length, which is also how the icons are named.
 Diagonals are half the vanilla length, so they span 1m across and 0.5m, 1m or 2m up.
 Each piece costs half its original materials, rounded up to a minimum of 1.
 The new pieces are listed in the same order as their vanilla originals, so they're easy to find in the Architecture tab.
