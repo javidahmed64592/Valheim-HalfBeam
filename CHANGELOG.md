@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+
+- The mod's name is now shown as "Half Beam", with a space like the other mods, for example in BetterHammer's Modded build menu category. Its settings and saved pieces are unchanged.
+
 ## 1.0.0
 
 - Added shorter wood iron, timber, decorated timber, log, worn log, flametal, dvergr and grausten pieces, with half-length diagonals where vanilla has them: 42 new pieces, 59 in total.
