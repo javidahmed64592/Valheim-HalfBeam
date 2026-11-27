@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2
+
+- Updated Jotunn to 2.30.3.
+
 ## 1.0.1
 
 - The mod's name is now shown as "Half Beam", with a space like the other mods, for example in BetterHammer's Modded build menu category. Its settings and saved pieces are unchanged.
